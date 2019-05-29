@@ -1,11 +1,15 @@
-# Handover from chat woth bot to a phone call with a sales agent
+# Handover from chat with bot to a phone call with a sales agent
 
 A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to a sales agent.
 
 ![Architecture](architecture1.jpg)
 
-Initially the client chats via Messenger with a chatbot. If she initiates a handover to a sales agent
-- Twilio calls the phones of the client and then the phone of a sales agent,
+Initially the client chats via Messenger with a chatbot. 
+
+If she initiates a handover to a sales agent:
+- Twilio calls the phones of the client and the phone of a sales agent,
 - the two start to talk,
 - the status of the preceding conversation can be displayed on the Node-RED dashboard to the agent.
 
+IBM Cloud Functions serves as a gateway. Node-RED contains the app controlling the use case.
+The Twilio client is based on the [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node).
