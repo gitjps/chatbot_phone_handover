@@ -1,0 +1,34 @@
+{
+  "name": "clicktocall-node",
+  "version": "1.0.0",
+  "description": "An example of implementing click to call functionality in a Node.js application",
+  "main": "app.js",
+  "scripts": {
+    "test": "node test | faucet",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "twilio",
+    "click",
+    "to",
+    "call"
+  ],
+  "author": "Kevin Whinnery",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.1.0 <5.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "twilio": "~3.0.0-rc.16",
+    "morgan": "^1.7.0",
+    "jade": "1.11.x"
+  },
+  "devDependencies": {
+    "tape": "^4.6.2",
+    "faucet": "*",
+    "supertest": "^2.0.1",
+    "cheerio": "^0.22.0"
+  }
+}
