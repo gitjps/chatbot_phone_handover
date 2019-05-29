@@ -1,0 +1,460 @@
+{
+  "name": "claim",
+  "intents": [
+    {
+      "intent": "bot_capabilities",
+      "examples": [
+        {
+          "text": "Wofür bist Du da"
+        },
+        {
+          "text": "Was kannst Du?"
+        },
+        {
+          "text": "Kannst Du ...?"
+        }
+      ],
+      "description": "get information what the bot can do for users"
+    },
+    {
+      "intent": "claim",
+      "examples": [
+        {
+          "text": "Ich möchte einen Schaden melden"
+        },
+        {
+          "text": "Ich habe einen Hagelschaden"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "startcall",
+      "examples": [
+        {
+          "text": "starte call"
+        },
+        {
+          "text": "rufe an"
+        },
+        {
+          "text": "anrufen"
+        },
+        {
+          "text": "telefonieren"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "time",
+      "examples": [
+        {
+          "text": "Kannst Du mir die Zeit verraten"
+        },
+        {
+          "text": "sag mir die Uhrzeit"
+        },
+        {
+          "text": "aktuelle Zeit"
+        },
+        {
+          "text": "Wie spät ist es"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "yesno",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": [
+            "ja",
+            "japp",
+            "genau",
+            "richtig",
+            "richtig verstanden",
+            "stimmt"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": [
+            "nein",
+            "falsch",
+            "nicht richtig",
+            "falsch verstanden",
+            "stimmt nicht"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "de",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bearbeiter anrufen?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Wollen Sie einen Bearbeiter anrufen?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558682802817",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_4_1558683531074",
+      "previous_sibling": "node_2_1558682913881"
+    },
+    {
+      "type": "standard",
+      "title": "Kennzeichen abfragen",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Wie lautet das Kennzeichen?"
+              },
+              {
+                "text": "Können Sie mir das Kennzeichen verraten?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558682802817",
+      "metadata": {},
+      "conditions": "@yesno:yes",
+      "dialog_node": "node_2_1558682913881"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Verstehe, auf Wiedersehen!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1558683531074",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Willkommen"
+      },
+      "conditions": "true",
+      "dialog_node": "node_5_1558695754155",
+      "previous_sibling": "node_3_1558695603508"
+    },
+    {
+      "type": "standard",
+      "title": "anrufen",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "okay, ich rufe an ... "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1558683531074",
+      "actions": [
+        {
+          "name": "/..._dev/actions/gateway",
+          "type": "server",
+          "parameters": {
+            "query_params": "?request=start_call&phoneNumber=%2B49...&vin=$vin&salesNumber=%2B49...8",
+            "target_route": "/wahandler",
+            "target_hostname": "http://....eu-de.mybluemix.net"
+          },
+          "credentials": "$private.my_credentials",
+          "result_variable": "$my_result"
+        }
+      ],
+      "metadata": {},
+      "conditions": "@yesno:yes",
+      "dialog_node": "node_3_1558695603508"
+    },
+    {
+      "type": "standard",
+      "title": "output data from backend",
+      "output": {
+        "text": {
+          "values": [
+            "$my_result.gw_result.message"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1558620373801",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_2_1558621226453"
+    },
+    {
+      "type": "standard",
+      "title": "Hagelschaden?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sie möchten einen Schaden melden, handelt es sich um einen Hagelschaden?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558616107376",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_1_1558682802817"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ihr Kennzeichen lautet $vin, ist das richtig? (aktuell ist der Dialog hier beendet)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1558682913881",
+      "context": {
+        "vin": "<?input.text?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_3_1558682966171"
+    },
+    {
+      "type": "standard",
+      "title": "current time",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "okay, ich schaue, wie spät es ist ... "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "/..._dev/actions/gateway",
+          "type": "server",
+          "parameters": {
+            "query_params": "?request=time",
+            "target_route": "/wahandler",
+            "target_hostname": "http://....eu-de.mybluemix.net"
+          },
+          "credentials": "$private.my_credentials",
+          "result_variable": "$my_result"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_2_1558621226453"
+      },
+      "conditions": "#time",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1558620373801",
+      "previous_sibling": "Willkommen"
+    },
+    {
+      "type": "standard",
+      "title": "Andernfalls",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ich habe Sie nicht verstanden. Bitte formulieren Sie Ihre Aussage neu."
+              },
+              {
+                "text": "Können Sie Ihre Aussage anders formulieren? Ich verstehe nicht, was Sie meinen."
+              },
+              {
+                "text": "Ich habe nicht verstanden, was Sie meinen."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Andernfalls",
+      "previous_sibling": "node_1_1558694744299"
+    },
+    {
+      "type": "standard",
+      "title": "claim",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sie möchten einen Schaden melden, richtig?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "private": {
+          "my_credentials": {
+            "api_key": "...:..."
+          }
+        }
+      },
+      "metadata": {},
+      "conditions": "#claim",
+      "dialog_node": "node_1_1558616107376",
+      "previous_sibling": "node_1_1558620373801"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ich kann einen Schaden aufnehmen, an einen Mitarbeiter weiterleiten und Ihnen die aktuelle Zeit sagen"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#bot_capabilities",
+      "dialog_node": "node_3_1558673960795",
+      "previous_sibling": "node_1_1558616107376"
+    },
+    {
+      "type": "standard",
+      "title": "start call",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "okay, ich rufe an ... "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "/HUK-Coburg_dev/actions/gateway",
+          "type": "server",
+          "parameters": {
+            "query_params": "?request=start_call&phoneNumber=%2B49...&vin=$vin&salesNumber=%2B49...",
+            "target_route": "/wahandler",
+            "target_hostname": "http://....eu-de.mybluemix.net"
+          },
+          "credentials": "$private.my_credentials",
+          "result_variable": "$my_result"
+        }
+      ],
+      "metadata": {},
+      "conditions": "#startcall",
+      "dialog_node": "node_1_1558694744299",
+      "previous_sibling": "node_3_1558673960795"
+    },
+    {
+      "type": "standard",
+      "title": "Willkommen",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hallo. Ich bin Lisa, wie kann ich Ihnen helfen?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "private": {
+          "my_credentials": {
+            "api_key": "9a2cedf1-729a-4e38-bbc7-6d80a0ad4d5f:gldcPFWTApubEuvSJ39eKXJTEUAoSxuNn67iuWJaMIcurQBRO3bcFSK8oa2DmRfU"
+          }
+        }
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Willkommen"
+    }
+  ],
+  "workspace_id": "12361c8c-200d-47f0-b967-1f9418b1e700",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
