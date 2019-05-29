@@ -20,15 +20,15 @@
   "env": {
     "TWILIO_ACCOUNT_SID": {
       "description": "Your Twilio account secret ID, you can find at: https://www.twilio.com/user/account",
-      "value": "AC5fd9e5fa24a63888f9f6988e9fd85980"
+      "value": ""
     },
     "TWILIO_AUTH_TOKEN": {
       "description": "Your secret Twilio Auth token, you can find at: https://www.twilio.com/user/account",
-      "value": "fe51655ade642a09dd89f08fc8e207f2"
+      "value": ""
     },
     "TWILIO_NUMBER": {
       "description": "The Twilio phone number you are using for this app. You can get one here: https://www.twilio.com/user/account/phone-numbers/incoming",
-      "value": "+4915735983027"
+      "value": ""
     }
   }
 }
