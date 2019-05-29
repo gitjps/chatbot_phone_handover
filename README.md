@@ -1,4 +1,4 @@
-# Chatbot with Handover to a Call with a Sales Agent
+# Handover from chat woth bot to a phone call with a sales agent
 
 A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to a sales agent.
 
