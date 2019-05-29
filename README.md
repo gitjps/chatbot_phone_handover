@@ -11,5 +11,5 @@ If she initiates a handover to a sales agent:
 - the two start to talk,
 - the status of the preceding conversation can be displayed on the Node-RED dashboard to the agent.
 
-IBM Cloud Functions serves as a gateway. Node-RED contains the app controlling the use case.
+IBM Cloud Functions serves as a [gateway](https://github.com/gitjps/watsonassistant-nodered-gateway). Node-RED contains the app controlling the use case.
 The Twilio client is based on the [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node).
