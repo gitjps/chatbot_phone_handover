@@ -6,20 +6,19 @@ A chatbot using the Watson Assistant services which continues the dialog via pho
 While chatbots are widely used by companies to get information from clients, sometimes users stop the conversation for various reason (duration of the dialog, unclear question). In those cases a handover to a human/sales agent helps continue the dialog.
 
 ## Architecture
-Watson aassistant is the basis of the chatbot. The Skill controls the dialog, the Assistant is used as an interface to Messenger.
-The solution leverages Node-RED as a prototyping platform, controlling the application and the Web frontend.
+The *Watson Assistant service* is the basis of the chatbot: the Skill controls the dialog, the Assistant is used as an interface to Messenger.
+The solution leverages *Node-RED* as a prototyping platform, controlling the application and the Web frontend.
 
 ![Architecture](architecture1.jpg)
 
-IBM Cloud Functions serves as a [gateway](https://github.com/gitjps/watsonassistant-nodered-gateway). 
+The Watson Assistant service can do programmatic calls to integrate with backend systems using *IBM Cloud Functions*. So I created a small [gateway](https://github.com/gitjps/watsonassistant-nodered-gateway) to call Node-RED from the Watson Assistant service.
 
-Twilio is a developer platform for communications to  add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
+*Twilio* is a developer platform for communications to  add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
 
 ## Use Case Description
-Initially the client chats via Messenger with a chatbot. 
+Initially the client chats via Messenger with the Watson Assistant chatbot. 
 
 If she initiates a handover to a sales agent:
-- Twilio calls the phones of the client and the phone of a sales agent,
+- Twilio calls the phones of the client and the phone of a sales agent subequently,
 - the two start to talk,
-- the status of the preceding conversation can be displayed on the Node-RED dashboard to the agent.
-
+- the status of the preceding chatbot conversation can be displayed on the Node-RED dashboard to the agent (not implemented yet).
