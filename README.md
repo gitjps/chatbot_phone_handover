@@ -22,3 +22,9 @@ If she initiates a handover to a sales agent:
 - Twilio calls the phones of the client and the phone of a sales agent subequently,
 - the two start to talk,
 - the status of the preceding chatbot conversation can be displayed on the Node-RED dashboard to the agent (not implemented yet).
+
+## Step-By-Step Instructions
+- Sign up for the [IBM Cloud](https://cloud.ibm.com/registration)
+- Create a [Watson Assistant Service](https://cloud.ibm.com/catalog/services/watson-assistant), see also the [Getting Started Guide](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started)
+- [Create a  new skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-dialog-add&locale=en) by importing JSON skill file [https://github.com/gitjps/chatbot_phone_handover/blob/master/skill-claim.json](skill-claim.json) 
+- [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser and Messenger
