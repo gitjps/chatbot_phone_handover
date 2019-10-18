@@ -26,10 +26,10 @@
           "text": "Ich habe einen Hagelschaden"
         }
       ],
-      "description": ""
+      "description": "report a damage"
     },
     {
-      "intent": "startcall",
+      "intent": "start call",
       "examples": [
         {
           "text": "starte call"
@@ -44,7 +44,7 @@
           "text": "telefonieren"
         }
       ],
-      "description": ""
+      "description": "start phone call immediatedly"
     },
     {
       "intent": "time",
@@ -62,7 +62,7 @@
           "text": "Wie spät ist es"
         }
       ],
-      "description": ""
+      "description": "tell me the current time"
     }
   ],
   "entities": [
@@ -107,7 +107,7 @@
   "dialog_nodes": [
     {
       "type": "standard",
-      "title": "Bearbeiter anrufen?",
+      "title": "Call agent?",
       "output": {
         "generic": [
           {
@@ -129,7 +129,7 @@
     },
     {
       "type": "standard",
-      "title": "Kennzeichen abfragen",
+      "title": "query license plate",
       "output": {
         "generic": [
           {
@@ -179,7 +179,7 @@
     },
     {
       "type": "standard",
-      "title": "anrufen",
+      "title": "call agent",
       "output": {
         "generic": [
           {
@@ -229,7 +229,7 @@
     },
     {
       "type": "standard",
-      "title": "Hagelschaden?",
+      "title": "hail damage?",
       "output": {
         "generic": [
           {
