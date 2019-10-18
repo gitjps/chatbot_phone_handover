@@ -1,0 +1,425 @@
+{
+  "name": "claim",
+  "intents": [
+    {
+      "intent": "time",
+      "examples": [
+        {
+          "text": "Can you tell me the time?"
+        },
+        {
+          "text": "tell me the current time"
+        },
+        {
+          "text": "What time is it"
+        }
+      ],
+      "description": "tell me the current time"
+    },
+    {
+      "intent": "claim",
+      "examples": [
+        {
+          "text": "I have a hail damage"
+        },
+        {
+          "text": "I want to report a damage"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "startcall",
+      "examples": [
+        {
+          "text": "call"
+        },
+        {
+          "text": "call an agent"
+        },
+        {
+          "text": "start a phone call"
+        },
+        {
+          "text": "phone somebody"
+        }
+      ],
+      "description": "call somebody"
+    },
+    {
+      "intent": "bot_capabilities",
+      "examples": [
+        {
+          "text": "what's your responsibility"
+        },
+        {
+          "text": "What can you do?"
+        },
+        {
+          "text": "Can you"
+        }
+      ],
+      "description": "get information what the bot can do for users"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "yesno",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": [
+            "no",
+            "wrong",
+            "not correct",
+            "not understood"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": [
+            "yes",
+            "yep",
+            "exactly",
+            "correct",
+            "understood"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "3d9dee20-50de-4469-9bd2-5919e2aae27f",
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "output data from backend",
+      "output": {
+        "text": {
+          "values": [
+            "$my_result.gw_result.message"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1558620373801",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_2_1558621226453"
+    },
+    {
+      "type": "standard",
+      "title": "store VIN",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ihr Kennzeichen lautet $vin, ist das richtig? (aktuell ist der Dialog hier beendet)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1558682913881",
+      "context": {
+        "vin": "<?input.text?>"
+      },
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_3_1558682966171"
+    },
+    {
+      "type": "standard",
+      "title": "call agent?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do you want to call an agent?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558682802817",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_4_1558683531074",
+      "previous_sibling": "node_2_1558682913881"
+    },
+    {
+      "type": "standard",
+      "title": "query license plate",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Wie lautet das Kennzeichen?"
+              },
+              {
+                "text": "Können Sie mir das Kennzeichen verraten?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558682802817",
+      "metadata": {},
+      "conditions": "@yesno:yes",
+      "dialog_node": "node_2_1558682913881"
+    },
+    {
+      "type": "standard",
+      "title": "and stop chat",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I see, goodbye!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1558683531074",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Willkommen"
+      },
+      "conditions": "true",
+      "dialog_node": "node_5_1558695754155",
+      "previous_sibling": "node_3_1558695603508"
+    },
+    {
+      "type": "standard",
+      "title": "call agent",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, I'm calling.... "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1558683531074",
+      "actions": [
+        {
+          "name": "/..._dev/actions/gateway",
+          "type": "server",
+          "parameters": {
+            "query_params": "?request=start_call&phoneNumber=%2B49...&vin=$vin&salesNumber=%2B49...8",
+            "target_route": "/wahandler",
+            "target_hostname": "http://....eu-de.mybluemix.net"
+          },
+          "credentials": "$private.my_credentials",
+          "result_variable": "$my_result"
+        }
+      ],
+      "metadata": {},
+      "conditions": "@yesno:yes",
+      "dialog_node": "node_3_1558695603508"
+    },
+    {
+      "type": "standard",
+      "title": "hail damage? ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You want to report a damage, is it a hail damage?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1558616107376",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_1_1558682802817"
+    },
+    {
+      "type": "standard",
+      "title": "claim",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sie möchten einen Schaden melden, richtig?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "private": {
+          "my_credentials": {
+            "api_key": "...:..."
+          }
+        }
+      },
+      "metadata": {},
+      "conditions": "#claim",
+      "dialog_node": "node_1_1558616107376",
+      "previous_sibling": "node_1_1558620373801"
+    },
+    {
+      "type": "standard",
+      "title": "anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't hear what you said. Please reformulate your statement."
+              },
+              {
+                "text": "Can you rephrase your statement? I don't understand what you mean."
+              },
+              {
+                "text": "I didn't understand what you meant."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Andernfalls",
+      "previous_sibling": "node_3_1558673960795"
+    },
+    {
+      "type": "standard",
+      "title": "current time",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay, I'll see what time it is.... "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "/..._dev/actions/gateway",
+          "type": "server",
+          "parameters": {
+            "query_params": "?request=time",
+            "target_route": "/wahandler",
+            "target_hostname": "http://....eu-de.mybluemix.net"
+          },
+          "credentials": "$private.my_credentials",
+          "result_variable": "$my_result"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_2_1558621226453"
+      },
+      "conditions": "#time",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1558620373801",
+      "previous_sibling": "Willkommen"
+    },
+    {
+      "type": "standard",
+      "title": "bot capabilities",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I can record a loss, forward it to an employee and tell you the current time"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#bot_capabilities",
+      "dialog_node": "node_3_1558673960795",
+      "previous_sibling": "node_1_1558616107376"
+    },
+    {
+      "type": "standard",
+      "title": "welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi. I'm Lisa. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "private": {
+          "my_credentials": {
+            "api_key": "xxx:xxx"
+          }
+        }
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Willkommen"
+    }
+  ],
+  "workspace_id": "3d9dee20-50de-4469-9bd2-5919e2aae27f",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
