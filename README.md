@@ -29,7 +29,10 @@ The following steps provide an overall overview what needs to be done. Some unde
 ### Twilio
 - Get a [Twilio account](https://www.twilio.com/voice)
 - Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
-
+- Perform a test calling two known numbers, e.g. your landline and cell number
+- Create a Node.js/Express app on IBM Cloud
+- Create the manifest file and push the local app to the IBM Cloud
+- Perform the test again
 
 
 ### IBM Cloud Functions
