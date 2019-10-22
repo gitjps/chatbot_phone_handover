@@ -2,10 +2,10 @@ Remark: This repo is under contruction
 
 # Handover from chatbot to phone call
 
-A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to a sales agent.
+A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to an agent.
 
 ## Problem statement
-While chatbots are widely used by companies to get information from clients, sometimes users stop the conversation for various reason (duration of the dialog, unclear question). In those cases a handover to a human/sales agent helps continue the dialog.
+While chatbots are widely used by companies to get information from clients, sometimes users stop the conversation for various reason (duration of the dialog, unclear question). In those cases a handover to an agent helps continue the dialog.
 
 ## Architecture
 The *Watson Assistant service* is the basis of the chatbot: the Skill controls the dialog, the Assistant is used as an interface to Messenger.
@@ -20,8 +20,8 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
 
-If she initiates a handover to a sales agent:
-- Twilio calls the phones of the client and the phone of a sales agent subequently,
+If she initiates a handover to an agent:
+- Twilio calls the phones of the client and the phone of an agent subequently,
 - the two start to talk,
 - the status of the preceding chatbot conversation can be displayed on the Node-RED dashboard to the agent (not implemented yet).
 
