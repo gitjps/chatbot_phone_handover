@@ -9,13 +9,16 @@ While chatbots are widely used by companies to get information from clients, som
 
 ## Architecture
 The *Watson Assistant service* is the basis of the chatbot: the Skill controls the dialog, the Assistant is used as an interface to Messenger.
-The solution leverages *Node-RED* as a prototyping platform, controlling the application and the Web frontend.
+The solution leverages *Node-RED* as a prototyping platform, controlling the application and the web frontend.
 
 ![Architecture](architecture1.jpg)
 
 The Watson Assistant service can do programmatic calls to integrate with backend systems using *IBM Cloud Functions*. So I created a small [gateway](https://github.com/gitjps/watsonassistant-nodered-gateway) to call Node-RED from the Watson Assistant service.
 
 *Twilio* is a developer platform for communications to add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
+
+## Assumptions
+- Some experiences with IBM Cloud (dashboard, creation of services, IBM Cloud/cloud foundry CLI commands, development of Node.js applications)
 
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
