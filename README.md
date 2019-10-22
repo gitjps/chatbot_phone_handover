@@ -19,6 +19,8 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 
 ## Assumptions
 - Some experiences with IBM Cloud (dashboard, creation of services, IBM Cloud/cloud foundry CLI commands, development of Node.js applications)
+- Twilio account and paid virtual phone number
+- IBM Cloud account (consumption should be within the free lite plan)
 
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
