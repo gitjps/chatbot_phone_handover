@@ -33,7 +33,7 @@ The following steps provide an overall overview what needs to be done. Some unde
 - Buy a [virtual phone number](https://www.twilio.com/console/phone-numbers/search), if you don't have one already
 - Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
 - Perform a test on http://127.0.0.1:3000/ calling the two numbers above
-- Login into IBM Cloud from command line, use the organizatiomn/space you would like to push the Node.js to 
+- Login into IBM Cloud from command line, use the organization/space you would like to push the Node.js to 
 - Adapt the [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
 - Perform the test again, use the route to the app on IBM Cloud
 
