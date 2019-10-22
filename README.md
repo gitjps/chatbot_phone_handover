@@ -44,7 +44,8 @@ The following steps provide an overall overview what needs to be done. Some unde
 
 #### Local Twilio Client
 
-- Clone this repo onto your laptop
+- Clone [this repository](https://github.com/gitjps/chatbot_phone_handover) onto your laptop
+- GFo to the Twilio client folder and install the dependencies
 
 ```
 cd Twilio client click-to-call
@@ -58,7 +59,7 @@ npm install
 #### Twilio client on IBM Cloud
 
 - Login into IBM Cloud from command line, use the organization/space you would like to push the Node.js to 
-- Adapt the [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
+- Change the app name in [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
 - Perform the test again, use the route to the app on IBM Cloud
 
 
