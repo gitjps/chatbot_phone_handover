@@ -1,3 +1,5 @@
+Remark: This repo is under contruction
+
 # Handover from chatbot to phone call
 
 A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to a sales agent.
@@ -13,7 +15,7 @@ The solution leverages *Node-RED* as a prototyping platform, controlling the app
 
 The Watson Assistant service can do programmatic calls to integrate with backend systems using *IBM Cloud Functions*. So I created a small [gateway](https://github.com/gitjps/watsonassistant-nodered-gateway) to call Node-RED from the Watson Assistant service.
 
-*Twilio* is a developer platform for communications to  add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
+*Twilio* is a developer platform for communications to add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
 
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
@@ -27,12 +29,29 @@ If she initiates a handover to a sales agent:
 The following steps provide an overall overview what needs to be done. Some understanding of app development and [IBM Cloud](https://cloud.ibm.com/registration) are required to follow along.
 
 ### Twilio
+
+#### Preparation
+
 - Get a [Twilio account](https://www.twilio.com/voice), note down your account SID
-- [Verify](https://www.twilio.com/console/phone-numbers/verified) two phone numbers that you want to call later. You coould, for example use your landline (client) and cell number (agent)
+- [Verify](https://www.twilio.com/console/phone-numbers/verified) two phone numbers that you want to call later. You could, for example use your landline (client) and cell number (agent)
 - Get an [authentication token](https://www.twilio.com/console/project/settings)
 - Buy a [virtual phone number](https://www.twilio.com/console/phone-numbers/search), if you don't have one already
-- Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
+
+#### Local Twilio Client
+
+- Clone this repo onto your laptop
+
+```
+cd Twilio client click-to-call
+
+npm install
+```
+
+-Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
 - Perform a test on http://127.0.0.1:3000/ calling the two numbers above
+
+#### Twilio client on IBM Cloud
+
 - Login into IBM Cloud from command line, use the organization/space you would like to push the Node.js to 
 - Adapt the [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
 - Perform the test again, use the route to the app on IBM Cloud
