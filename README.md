@@ -27,9 +27,12 @@ If she initiates a handover to a sales agent:
 The following steps provide an overall overview what needs to be done. Some understanding of app development and [IBM Cloud](https://cloud.ibm.com/registration) are required to follow along.
 
 ### Twilio
-- Get a [Twilio account](https://www.twilio.com/voice)
+- Get a [Twilio account](https://www.twilio.com/voice), note down your account SID
+- [Verify](https://www.twilio.com/console/phone-numbers/verified) two phone numbers that you want to call later. You coould, for example use your landline (client) and cell number (agent)
+- Get an [authentication token](https://www.twilio.com/console/project/settings)
+- Buy a [virtual phone number](https://www.twilio.com/console/phone-numbers/search), if you don't have one already
 - Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
-- Perform a test calling two known numbers, e.g. your landline and cell number
+- Perform a test on http://127.0.0.1:3000/ calling the two numbers above
 - Create a Node.js/Express app on IBM Cloud
 - Create the manifest file and push the local app to the IBM Cloud
 - Perform the test again
