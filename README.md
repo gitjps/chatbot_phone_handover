@@ -18,10 +18,11 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 *Twilio* is a developer platform for communications to add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
 
 ## Assumptions & Prereqs
-- Some experiences with IBM Cloud (dashboard, creation of services, IBM Cloud/cloud foundry CLI commands, development of Node.js applications)
+- Some experiences with IBM Cloud, Node-RED is needed
 - [Twilio account](https://www.twilio.com/) and paid virtual phone number
-- [IBM Cloud](https://www.ibm.com/cloud) account (consumption should be within the free lite plan)
 - Free [nkrok](https://ngrok.com/) account, if you want to run and test the Twilio client locally (nice to have, but not necessary)
+- [IBM Cloud](https://www.ibm.com/cloud) account (consumption should be within the free lite plan) for a permanent deployment of the Twilio client
+
 
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
@@ -69,12 +70,14 @@ node app.js
 - Change the app name in [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
 - Perform the test again, use the route to the app on IBM Cloud
 
+### Node-RED on IBM Cloud
+
+- [Create a Node-RED instance](https://cloud.ibm.com/catalog/starters/node-red-starter) and import [node-red.json](https://cloud.ibm.com/catalog/starters/node-red-starter)
+- 
 
 ### IBM Cloud Functions
-- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js)
 
-### Node-RED on IBM Cloud
-- [Create a Node-RED instance](https://cloud.ibm.com/catalog/starters/node-red-starter) and import [node-red.json](https://cloud.ibm.com/catalog/starters/node-red-starter)
+- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js), also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
 
 
 ### Watson Assistant
