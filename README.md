@@ -17,10 +17,11 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 
 *Twilio* is a developer platform for communications to add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
 
-## Assumptions
+## Assumptions & Prereqs
 - Some experiences with IBM Cloud (dashboard, creation of services, IBM Cloud/cloud foundry CLI commands, development of Node.js applications)
-- Twilio account and paid virtual phone number
-- IBM Cloud account (consumption should be within the free lite plan)
+- [Twilio account](https://www.twilio.com/) and paid virtual phone number
+- [IBM Cloud](https://www.ibm.com/cloud) account (consumption should be within the free lite plan)
+- Free [nkrok](https://ngrok.com/) account, if you want to run and test the Twilio client locally (nice to have, but not necessary)
 
 ## Use Case Description
 Initially the client chats via Messenger with the Watson Assistant chatbot. 
@@ -45,16 +46,22 @@ The following steps provide an overall overview what needs to be done. Some unde
 #### Local Twilio Client
 
 - Clone [this repository](https://github.com/gitjps/chatbot_phone_handover) onto your laptop
-- GFo to the Twilio client folder and install the dependencies
+- Go to the Twilio client folder and install the dependencies
 
 ```
 cd Twilio client click-to-call
-
 npm install
 ```
 
--Install the [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) app on your local machine
-- Perform a test on http://127.0.0.1:3000/ calling the two numbers above
+See [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) for documentation
+- Start the client and the tunnel, that exposes the local REST APIs on the web
+
+```
+node app.js
+./ngrok http 3000
+```
+
+- Perform a test on https://your_address.ngrok.io:3000 calling the two numbers above
 
 #### Twilio client on IBM Cloud
 
