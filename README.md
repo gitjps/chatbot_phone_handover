@@ -73,7 +73,12 @@ node app.js
 ### Node-RED on IBM Cloud
 
 - [Create a Node-RED instance](https://cloud.ibm.com/catalog/starters/node-red-starter) and import [node-red.json](https://cloud.ibm.com/catalog/starters/node-red-starter)
-- 
+- Go to the Twilio flow
+![Twilio Flow](Node-RED Twilio flow.jpg)
+- Open the function node *use test numbers* and modify the numbers and the URL of the Twilio client
+- Open the *Call Twilio Client on IBM Cloud* node and modify the URL
+- Deploy the changes
+- Click on the *test* injection node, you should see a message from Twilio in the debug pane
 
 ### IBM Cloud Functions
 
