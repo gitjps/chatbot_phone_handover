@@ -83,7 +83,15 @@ node app.js
 ### IBM Cloud Functions
 
 - [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js), also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
+- The connection to Node-RED can be tested by entering parameters (*Change Input* button) and starting the action (*Invoke* button)
 
+```
+{
+        "query_params": "?request=start_call&phoneNumber=%2B491725555555&vin=ABC&salesNumber=%2B493615555555",
+        "target_route": "/wahandler",
+        "target_hostname": "http://yournodereddomain.mybluemix.net"
+}
+```
 
 ### Watson Assistant
 - Create a [Watson Assistant Service](https://cloud.ibm.com/catalog/services/watson-assistant), see also the [Getting Started Guide](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started)
