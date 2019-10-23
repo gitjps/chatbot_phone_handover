@@ -1,4 +1,4 @@
-Remark: This repo is under contruction
+Remark: This repo is under contruction, feedback, questions, issues are welcome.
 
 # Handover from chatbot to phone call
 
