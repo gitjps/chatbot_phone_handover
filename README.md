@@ -1,4 +1,4 @@
-Remark: This repo is under contruction
+Remark: This repo is under contruction, feedback, questions, issues are welcome.
 
 # Handover from chatbot to phone call
 
@@ -29,8 +29,8 @@ Initially the client chats via Messenger with the Watson Assistant chatbot.
 
 If she initiates a handover to an agent:
 - Twilio calls the phones of the client and the phone of an agent subequently,
-- the two start to talk,
-- the status of the preceding chatbot conversation can be displayed on the Node-RED dashboard to the agent (not implemented yet).
+- The two start to talk,
+- The status of the preceding chatbot conversation is displayed on the Node-RED dashboard to the agent.
 
 ## Installation Instructions
 The following steps provide an overall overview what needs to be done. Some understanding of app development and [IBM Cloud](https://cloud.ibm.com/registration) are required to follow along.
@@ -82,10 +82,25 @@ node app.js
 
 ### IBM Cloud Functions
 
-- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js) in the *Default Package*, see also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
+- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js), also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
+- The connection to Node-RED can be tested by entering parameters (*Change Input* button) and starting the action (*Invoke* button)
+
+```
+{
+        "query_params": "?request=start_call&phoneNumber=%2B491725555555&vin=ABC&salesNumber=%2B493615555555",
+        "target_route": "/wahandler",
+        "target_hostname": "http://yournodereddomain.mybluemix.net"
+}
+```
+- Go to the Endpoints section and note the API key 
 
 ### Watson Assistant
 - Create a [Watson Assistant Service](https://cloud.ibm.com/catalog/services/watson-assistant), see also the [Getting Started Guide](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started)
 - [Create a  new skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-dialog-add&locale=en) by importing JSON skill file [https://github.com/gitjps/chatbot_phone_handover/blob/master/skill-claim.json](skill-claim.json)
+- Go to the dialog and adapt the following nodes 
+   + *yes, call agent* (phone numbers)
+   + *welcome* (API key)
+   + *current time*
+   + *claim damage* (API key)
 - **Test** Use the *Try Out* button
 - [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser and Messenger
