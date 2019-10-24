@@ -74,7 +74,7 @@ node app.js
 
 - [Create a Node-RED instance](https://cloud.ibm.com/catalog/starters/node-red-starter) and import [node-red.json](https://cloud.ibm.com/catalog/starters/node-red-starter)
 - Go to the Twilio flow
-![Twilio Flow](Node-RED Twilio flow.jpg)
+![Twilio Flow](NodeRedTwilioFlow.jpg)
 - Open the function node *use test numbers* and modify the numbers and the URL of the Twilio client
 - Open the *Call Twilio Client on IBM Cloud* node and modify the URL
 - Deploy the changes
@@ -82,13 +82,10 @@ node app.js
 
 ### IBM Cloud Functions
 
-- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js), also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
-
+- [Create an IBM Cloud Functions Node.js action](https://cloud.ibm.com/functions/actions) using [gateway.js](https://github.com/gitjps/chatbot_phone_handover/blob/master/gateway.js) in the *Default Package*, see also [Getting Started](https://cloud.ibm.com/docs/openwhisk?topic=cloud-functions-getting-started&locale=de)
 
 ### Watson Assistant
 - Create a [Watson Assistant Service](https://cloud.ibm.com/catalog/services/watson-assistant), see also the [Getting Started Guide](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started)
 - [Create a  new skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-dialog-add&locale=en) by importing JSON skill file [https://github.com/gitjps/chatbot_phone_handover/blob/master/skill-claim.json](skill-claim.json)
 - **Test** Use the *Try Out* button
 - [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser and Messenger
-
-
