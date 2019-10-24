@@ -18,7 +18,7 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 *Twilio* is a developer platform for communications to add capabilities like voice, video, and messaging to applications. I used the standard [clicktocall Node.js repo](https://github.com/TwilioDevEd/clicktocall-node) and integrated it into the solution.
 
 ## Assumptions & Prereqs
-- Some experiences with IBM Cloud, Node-RED is needed
+- Some experiences with IBM Cloud, Node-RED, and Watson Assistant is needed
 - [Twilio account](https://www.twilio.com/) and paid virtual phone number
 - Free [nkrok](https://ngrok.com/) account, if you want to run and test the Twilio client locally (nice to have, but not necessary)
 - [IBM Cloud](https://www.ibm.com/cloud) account (consumption should be within the free lite plan) for a permanent deployment of the Twilio client
@@ -98,9 +98,9 @@ node app.js
 - Create a [Watson Assistant Service](https://cloud.ibm.com/catalog/services/watson-assistant), see also the [Getting Started Guide](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started)
 - [Create a  new skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-dialog-add&locale=en) by importing JSON skill file [https://github.com/gitjps/chatbot_phone_handover/blob/master/skill-claim.json](skill-claim.json)
 - Go to the dialog and adapt the following nodes 
-   + *yes, call agent* (phone numbers)
+   + *yes, call agent* (URL, phone numbers)
    + *welcome* (API key)
-   + *current time*
+   + *current time* (URL)
    + *claim damage* (API key)
 - **Test** Use the *Try Out* button
 - [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser and Messenger
