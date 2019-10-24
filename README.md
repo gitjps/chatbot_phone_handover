@@ -29,8 +29,8 @@ Initially the client chats via Messenger with the Watson Assistant chatbot.
 
 If she initiates a handover to an agent:
 - Twilio calls the phones of the client and the phone of an agent subequently,
-- the two start to talk,
-- the status of the preceding chatbot conversation can be displayed on the Node-RED dashboard to the agent (not implemented yet).
+- The two start to talk,
+- The status of the preceding chatbot conversation is displayed on the Node-RED dashboard to the agent.
 
 ## Installation Instructions
 The following steps provide an overall overview what needs to be done. Some understanding of app development and [IBM Cloud](https://cloud.ibm.com/registration) are required to follow along.
