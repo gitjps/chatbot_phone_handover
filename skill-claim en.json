@@ -125,7 +125,7 @@
           {
             "values": [
               {
-                "text": "Ihr Kennzeichen lautet $vin, ist das richtig? (aktuell ist der Dialog hier beendet)"
+                "text": "Your license plate is $vin, is that correct? "
               }
             ],
             "response_type": "text",
@@ -171,10 +171,10 @@
           {
             "values": [
               {
-                "text": "Wie lautet das Kennzeichen?"
+                "text": "What's the license plate?"
               },
               {
-                "text": "Können Sie mir das Kennzeichen verraten?"
+                "text": "Could you tell me the license plate?"
               }
             ],
             "response_type": "text",
@@ -277,7 +277,7 @@
           {
             "values": [
               {
-                "text": "Sie möchten einen Schaden melden, richtig?"
+                "text": "You want to report a damage?"
               }
             ],
             "response_type": "text",
