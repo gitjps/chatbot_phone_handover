@@ -5,7 +5,7 @@ Remark: This repo is under contruction, feedback, questions, issues are welcome.
 A chatbot using the Watson Assistant services which continues the dialog via phone should the client prefer to talk to an agent.
 
 ## Problem statement
-While chatbots are widely used by companies to get information from clients, sometimes users stop the conversation for various reason (duration of the dialog, unclear question). In those cases a handover to an agent helps continue the dialog.
+While chatbots are widely used by companies to get information from clients, sometimes users stop the conversation for various reasons (duration of the dialog, unclear question). In those cases a handover to an agent helps continue the dialog.
 
 ## Architecture
 The *Watson Assistant service* is the basis of the chatbot: the Skill controls the dialog, the Assistant is used as an interface to Messenger.
