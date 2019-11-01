@@ -55,13 +55,16 @@ $ npm install
 ```
 
 You can also clone the original and more current version directly from the [Twilio repository](https://github.com/TwilioDevEd/clicktocall-node). See [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) for documentation
-- Start the client and the tunnel, that exposes the local REST APIs on the web
-
+- Start the Twilio client 
 ```
 $ export TWILIO_ACCOUNT_SID=youraccountsid
 $ export TWILIO_AUTH_TOKEN=yourauthtoken
 $ export TWILIO_NUMBER=yourvirtualtwilionumber
 $ node app.js
+```
+The client is running but it needs to be accessible from the Twilio platform. So open another terminal windows and start the VPN tunnel, that exposes the local REST APIs on the web.
+
+```
 $ ./ngrok http 3000
 ```
 
