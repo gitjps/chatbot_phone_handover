@@ -54,7 +54,7 @@ cd Twilio client click-to-call
 npm install
 ```
 
-See [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) for documentation
+You can also clone the original and more current version directly from the [Twilio repository](https://github.com/TwilioDevEd/clicktocall-node). See [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) for documentation
 - Start the client and the tunnel, that exposes the local REST APIs on the web
 
 ```
