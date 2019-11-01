@@ -103,4 +103,6 @@ node app.js
    + *current time* (URL)
    + *claim damage* (API key)
 - **Test** Use the *Try Out* button
-- [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser and Messenger
+- [Create an assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistant-add&locale=en) for web browser (test environment) and Messenger
+
+You can now share the URL of the assistant or the Messenger bot name with your users.
