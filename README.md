@@ -70,7 +70,7 @@ $ ./ngrok http 3000
 
 - Perform a test, go to https://your_address.ngrok.io:3000 
 - Enter the phone numbers of the client and the client
-
+![localtest](local%20test.jpg)
 - The two phones should ring subsequently and there's also a voice message
 
 #### Twilio client on IBM Cloud
