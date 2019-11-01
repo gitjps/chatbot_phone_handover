@@ -50,19 +50,19 @@ The following steps provide an overall overview what needs to be done. Some unde
 - Go to the Twilio client folder and install the dependencies
 
 ```
-cd Twilio client click-to-call
-npm install
+$ cd Twilio client click-to-call
+$ npm install
 ```
 
 You can also clone the original and more current version directly from the [Twilio repository](https://github.com/TwilioDevEd/clicktocall-node). See [Click To Call with Node.js and Express](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express) for documentation
 - Start the client and the tunnel, that exposes the local REST APIs on the web
 
 ```
-export TWILIO_ACCOUNT_SID=youraccountsid
-export TWILIO_AUTH_TOKEN=yourauthtoken
-export TWILIO_NUMBER=yourvirtualtwilionumber
-node app.js
-./ngrok http 3000
+$ export TWILIO_ACCOUNT_SID=youraccountsid
+$ export TWILIO_AUTH_TOKEN=yourauthtoken
+$ export TWILIO_NUMBER=yourvirtualtwilionumber
+$ node app.js
+$ ./ngrok http 3000
 ```
 
 - Perform a test on https://your_address.ngrok.io:3000 calling the two numbers above
