@@ -58,6 +58,9 @@ You can also clone the original and more current version directly from the [Twil
 - Start the client and the tunnel, that exposes the local REST APIs on the web
 
 ```
+export TWILIO_ACCOUNT_SID=youraccountsid
+export TWILIO_AUTH_TOKEN=yourauthtoken
+export TWILIO_NUMBER=yourvirtualtwilionumber
 node app.js
 ./ngrok http 3000
 ```
@@ -68,6 +71,7 @@ node app.js
 
 - Login into IBM Cloud from command line, use the organization/space you would like to push the Node.js to 
 - Change the app name in [manifest file manifest.yml](https://github.com/gitjps/chatbot_phone_handover/blob/master/Twilio%20client%20click-to-call/manifest.yml) and push the local app to the IBM Cloud (cf push)
+- set the environment variables TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_NUMBER of the deployed app
 - Perform the test again, use the route to the app on IBM Cloud
 
 ### Node-RED on IBM Cloud
