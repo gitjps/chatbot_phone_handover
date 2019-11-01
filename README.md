@@ -68,7 +68,9 @@ The client is running but it needs to be accessible from the Twilio platform. So
 $ ./ngrok http 3000
 ```
 
-- Perform a test on https://your_address.ngrok.io:3000 calling the two numbers above
+- Perform a test, go to https://your_address.ngrok.io:3000 
+- Enter the phone numbers of the client and the client
+- The two phones should ring subsequently and there's also a voice message
 
 #### Twilio client on IBM Cloud
 
