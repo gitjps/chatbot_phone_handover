@@ -39,13 +39,14 @@ The following steps provide an overall overview what needs to be done. Some unde
 
 #### Preparation
 
-- Get a [Twilio account](https://www.twilio.com/voice), note down your account SID
-- [Verify](https://www.twilio.com/console/phone-numbers/verified) two phone numbers that you want to call later. You could, for example use your landline (client) and cell number (agent)
-- Get an [authentication token](https://www.twilio.com/console/project/settings)
-- Buy a [virtual phone number](https://www.twilio.com/console/phone-numbers/search), if you don't have one already
+- Get a [Twilio account](https://www.twilio.com/voice), note down your account SID.
+- Create a project.
+- A token is needed for authentication, which you can find under [general settings](https://www.twilio.com/console/project/settings). If prompted, enter the password again. 
+- [Verify](https://www.twilio.com/console/phone-numbers/verified) two phone numbers that you want to call later. You could, for example use your landline (client) and cell number (agent).
+- Buy a [virtual phone number](https://www.twilio.com/console/phone-numbers/search), if you don't have one already.
 
 #### Local Twilio Client
-
+The Twilio Click To Call client is used to control the communication. It is available for several languages and we are using Node.js and the Express framework.
 - Clone [this repository](https://github.com/gitjps/chatbot_phone_handover) onto your laptop
 - Go to the Twilio client folder and install the dependencies
 
@@ -69,7 +70,7 @@ $ ./ngrok http 3000
 ```
 
 - Perform a test, go to https://your_address.ngrok.io:3000 
-- Enter the phone numbers of the client and the agent
+- Enter the verified phone numbers of the client and the agent
 ![localtest](local%20test.jpg)
 - The two phones should ring subsequently and there's also a voice message
 
