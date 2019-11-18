@@ -20,7 +20,7 @@ The Watson Assistant service can do programmatic calls to integrate with backend
 ## Assumptions & Prereqs
 - Some experiences with IBM Cloud, Node-RED, and Watson Assistant is needed
 - [Twilio account](https://www.twilio.com/) and paid virtual phone number
-- Free [nkrok](https://ngrok.com/) account, if you want to run and test the Twilio client locally (nice to have, but not necessary)
+- Free [ngrok](https://ngrok.com/) account, if you want to run and test the Twilio client locally (nice to have, but not necessary)
 - [IBM Cloud](https://www.ibm.com/cloud) account (consumption should be within the free lite plan) for a permanent deployment of the Twilio client
 
 
