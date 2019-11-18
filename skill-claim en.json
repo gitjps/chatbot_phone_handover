@@ -1,5 +1,5 @@
 {
-  "name": "claim",
+  "name": "claim - english",
   "intents": [
     {
       "intent": "time",
@@ -64,6 +64,24 @@
   ],
   "entities": [
     {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "hail",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "hail",
+          "synonyms": [
+            "hailstorm"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
       "entity": "yesno",
       "values": [
         {
@@ -88,6 +106,11 @@
           ]
         }
       ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-location",
+      "values": [],
       "fuzzy_match": true
     }
   ],
@@ -125,7 +148,7 @@
           {
             "values": [
               {
-                "text": "Your license plate is $vin, is that correct? "
+                "text": "Your license plate is $vin, where did the damage happen?"
               }
             ],
             "response_type": "text",
@@ -149,7 +172,7 @@
           {
             "values": [
               {
-                "text": "Do you want to call an agent?"
+                "text": "I did not understand that, do you want to call an agent?"
               }
             ],
             "response_type": "text",
@@ -157,11 +180,34 @@
           }
         ]
       },
-      "parent": "node_1_1558682802817",
+      "parent": "node_3_1558682966171",
       "metadata": {},
       "conditions": "true",
       "dialog_node": "node_4_1558683531074",
-      "previous_sibling": "node_2_1558682913881"
+      "previous_sibling": "node_10_1574086675950"
+    },
+    {
+      "type": "standard",
+      "title": "store location",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I understand the damage happend in @sys-location"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1558682966171",
+      "context": {
+        "location": "@sys-location"
+      },
+      "conditions": "@sys-location",
+      "dialog_node": "node_10_1574086675950"
     },
     {
       "type": "standard",
